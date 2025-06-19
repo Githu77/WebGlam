@@ -69,7 +69,7 @@ export default function Home() {
         <Header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm" />
 
         <main className="relative">
-          <section className="relative min-h-[90vh] flex items-center justify-center pt-24">
+          <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
               <Image
@@ -90,7 +90,7 @@ export default function Home() {
             </div>
 
             {/* Centered Background Image - Fixed and in Front */}
-            <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+            <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
               <div className="relative w-96 h-96 opacity-30 dark:opacity-20">
                 <Image
                   src="https://res.cloudinary.com/dhiouuz96/image/upload/v1750245926/Lovepik_com-380144492-color-gradient-organic-object-3d-element-3d-objects-pink_hiomuq.png"
@@ -142,7 +142,7 @@ export default function Home() {
                       transition={{ duration: 0.5, delay: 0.4 }}
                       className="text-lg md:text-xl text-gray-800 dark:text-gray-100 leading-relaxed max-w-xl font-medium"
                     >
-                      Bespoke websites forged with React & Next.js for brands who lead, not follow.
+                      Bespoke websites forged with React & Next.js for brands who lead, not follow
                     </motion.p>
                   </div>
 
@@ -170,133 +170,34 @@ export default function Home() {
                   </motion.div>
                 </motion.div>
 
-                {/* Right Column - Ultra Modern Design */}
-                <div className="relative hidden lg:block">
-                  <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.9, delay: 0.3 }}
-                    className="relative"
-                  >
-                    {/* Main Container with Glassmorphism */}
-                    <div className="relative bg-gradient-to-br from-white/20 via-white/10 to-transparent backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-white/10 p-8 shadow-2xl">
-                      {/* Floating Elements */}
-                      <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-indigo-400/30 to-purple-500/30 rounded-full blur-xl animate-pulse"></div>
-                      <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-pink-400/20 to-indigo-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-                      
-                      {/* Content Grid */}
-                      <div className="relative z-10 space-y-8">
-                        {/* Top Row - Stats */}
-                        <div className="grid grid-cols-3 gap-4">
-                          {[
-                            { label: "Projects", value: "50+", color: "from-indigo-500 to-purple-500" },
-                            { label: "Clients", value: "25+", color: "from-purple-500 to-pink-500" },
-                            { label: "Years", value: "5+", color: "from-pink-500 to-indigo-500" }
-                          ].map((stat, i) => (
-                            <motion.div
-                              key={stat.label}
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
-                              className="text-center"
-                            >
-                              <div className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1`}>
-                                {stat.value}
-                              </div>
-                              <div className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                                {stat.label}
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                        {/* Center - Feature Showcase */}
-                        <div className="space-y-6">
-                          {[
-                            {
-                              icon: <Palette className="w-5 h-5" />,
-                              title: "Modern Design",
-                              description: "Cutting-edge aesthetics",
-                              gradient: "from-indigo-500/20 to-purple-500/20"
-                            },
-                            {
-                              icon: <Zap className="w-5 h-5" />,
-                              title: "Lightning Fast",
-                              description: "Optimized performance",
-                              gradient: "from-purple-500/20 to-pink-500/20"
-                            },
-                            {
-                              icon: <Shield className="w-5 h-5" />,
-                              title: "Secure & Reliable",
-                              description: "Enterprise-grade security",
-                              gradient: "from-pink-500/20 to-indigo-500/20"
-                            }
-                          ].map((feature, i) => (
-                            <motion.div
-                              key={feature.title}
-                              initial={{ opacity: 0, x: 20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
-                              className="group relative"
-                            >
-                              <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                              <div className="relative bg-white/30 dark:bg-black/30 backdrop-blur-xl rounded-2xl p-4 border border-white/40 dark:border-white/20 hover:border-white/60 dark:hover:border-white/40 transition-all duration-300">
-                                <div className="flex items-center space-x-4">
-                                  <div className="p-2 rounded-xl bg-white/50 dark:bg-black/50 backdrop-blur-sm">
-                                    <div className="text-indigo-600 dark:text-indigo-400">
-                                      {feature.icon}
-                                    </div>
-                                  </div>
-                                  <div className="flex-1">
-                                    <h3 className="font-semibold text-gray-800 dark:text-gray-100 text-sm">
-                                      {feature.title}
-                                    </h3>
-                                    <p className="text-xs text-gray-600 dark:text-gray-400">
-                                      {feature.description}
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                        {/* Bottom - CTA Section */}
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.9 }}
-                          className="relative"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl blur-lg"></div>
-                          <div className="relative bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-blur-xl rounded-2xl p-6 border border-white/40 dark:border-white/20">
-                            <div className="text-center space-y-3">
-                              <div className="flex items-center justify-center space-x-2">
-                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                                  Available for new projects
-                                </span>
-                              </div>
-                              <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">
-                                Ready to start your journey?
-                              </div>
-                              <Button
-                                size="sm"
-                                className="bg-white/80 hover:bg-white text-indigo-600 hover:text-indigo-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-                              >
-                                Let's Talk
-                                <ArrowRight className="ml-2 h-3 w-3" />
-                              </Button>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </div>
+                {/* Right Column - Four Sleek Cards */}
+                <div className="relative hidden lg:flex items-center justify-center min-h-[400px]">
+                  <div className="grid grid-cols-2 gap-6">
+                    {/* Card 1 */}
+                    <div className="rounded-2xl bg-white/60 dark:bg-black/30 border border-white/20 dark:border-white/10 shadow-xl backdrop-blur-xl p-6 flex flex-col items-center justify-center min-w-[140px] min-h-[140px]">
+                      <Palette className="w-8 h-8 text-indigo-400 mb-2" />
+                      <span className="text-base font-medium text-gray-800 dark:text-gray-200">Design</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">Modern & Unique</span>
                     </div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute -top-8 -left-8 w-16 h-16 border border-indigo-300/30 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-                    <div className="absolute -bottom-4 -right-4 w-12 h-12 border border-purple-300/30 rounded-full animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
-                  </motion.div>
+                    {/* Card 2 */}
+                    <div className="rounded-2xl bg-white/60 dark:bg-black/30 border border-white/20 dark:border-white/10 shadow-xl backdrop-blur-xl p-6 flex flex-col items-center justify-center min-w-[140px] min-h-[140px]">
+                      <Zap className="w-8 h-8 text-purple-400 mb-2" />
+                      <span className="text-base font-medium text-gray-800 dark:text-gray-200">Performance</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">Lightning Fast</span>
+                    </div>
+                    {/* Card 3 */}
+                    <div className="rounded-2xl bg-white/60 dark:bg-black/30 border border-white/20 dark:border-white/10 shadow-xl backdrop-blur-xl p-6 flex flex-col items-center justify-center min-w-[140px] min-h-[140px]">
+                      <Shield className="w-8 h-8 text-pink-400 mb-2" />
+                      <span className="text-base font-medium text-gray-800 dark:text-gray-200">Security</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">Enterprise Grade</span>
+                    </div>
+                    {/* Card 4 */}
+                    <div className="rounded-2xl bg-white/60 dark:bg-black/30 border border-white/20 dark:border-white/10 shadow-xl backdrop-blur-xl p-6 flex flex-col items-center justify-center min-w-[140px] min-h-[140px]">
+                      <Sparkles className="w-8 h-8 text-indigo-300 mb-2" />
+                      <span className="text-base font-medium text-gray-800 dark:text-gray-200">Experience</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">Effortlessly Smooth</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -412,11 +313,11 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   >
                     <div className="bg-gradient-to-br from-white/60 to-indigo-50/60 dark:from-background/60 dark:to-indigo-950/60 rounded-xl p-6 shadow-lg border border-white/40 dark:border-white/10 backdrop-blur-xl flex flex-col space-y-3 hover:shadow-xl transition-all duration-300 hover:border-white/60 dark:hover:border-white/30">
-                      <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-100">{service.title}</h3>
-                      <p className="text-gray-700 dark:text-gray-200 leading-relaxed">{service.description}</p>
+                      <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">{service.title}</h3>
+                      <p className="text-gray-900 dark:text-gray-200 leading-relaxed">{service.description}</p>
                       <ul className="space-y-2">
                         {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center text-sm text-gray-700 dark:text-gray-200">
+                          <li key={idx} className="flex items-center text-sm text-gray-900 dark:text-gray-100">
                             <Zap className="w-4 h-4 text-indigo-500 mr-2" />
                             {feature}
                           </li>
@@ -589,10 +490,10 @@ export default function Home() {
                   <div className="space-y-4">
                     <h3 className="text-2xl font-semibold">Technologies Used</h3>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="px-3 py-1">Php</Badge>
-                      <Badge variant="secondary" className="px-3 py-1">Js</Badge>
-                      <Badge variant="secondary" className="px-3 py-1">TypeScript</Badge>
-                      <Badge variant="secondary" className="px-3 py-1">CSS</Badge>
+                      <Badge variant="floating">Php</Badge>
+                      <Badge variant="floating">Js</Badge>
+                      <Badge variant="floating">TypeScript</Badge>
+                      <Badge variant="floating">CSS</Badge>
                     </div>
                   </div>
 
@@ -757,15 +658,15 @@ export default function Home() {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, href }) => {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-border group h-full">
+    <Card className="bg-white/60 dark:bg-black/40 border border-white/30 backdrop-blur-xl shadow-lg rounded-xl p-6 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full">
       <CardHeader className="pb-4">
-        <div className="mb-4 p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 inline-flex transition-colors duration-300 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50">
+        <div className="mb-4 p-3 rounded-xl bg-white/40 dark:bg-black/40 backdrop-blur-md inline-flex transition-colors duration-300 group-hover:bg-white/60 dark:group-hover:bg-black/60">
           {icon}
         </div>
-        <CardTitle className="text-xl md:text-2xl">{title}</CardTitle>
+        <CardTitle className="text-lg font-medium text-gray-800 dark:text-gray-200">{title}</CardTitle>
       </CardHeader>
       <CardContent className="pb-4">
-        <CardDescription className="text-base leading-relaxed">{description}</CardDescription>
+        <CardDescription className="text-base font-normal text-gray-600 dark:text-gray-300">{description}</CardDescription>
       </CardContent>
       <CardFooter>
         <Button
@@ -784,35 +685,33 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, hre
 
 const ValueCard: React.FC<ValueCardProps> = ({ title, description }) => {
   return (
-    <div className="bg-gradient-to-br from-white/60 to-indigo-50/60 dark:from-background/60 dark:to-indigo-950/60 rounded-xl p-6 shadow-lg border border-white/40 dark:border-white/10 backdrop-blur-xl flex flex-col space-y-3 hover:shadow-xl transition-all duration-300 hover:border-white/60 dark:hover:border-white/30">
+    <div className="bg-white/60 dark:bg-black/40 border border-white/30 backdrop-blur-xl shadow-lg rounded-xl p-6 flex flex-col space-y-3 hover:shadow-xl transition-all duration-300 hover:border-white/50 dark:hover:border-white/50 z-20">
       <div className="flex items-center space-x-3">
-        <div className="p-2 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-sm">
+        <div className="p-2 rounded-full bg-white/80 dark:bg-black/80">
           <CheckCircle className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-100">{title}</h3>
+        <h3 className="font-medium text-base text-gray-800 dark:text-gray-200">{title}</h3>
       </div>
-      <p className="text-gray-700 dark:text-gray-200 leading-relaxed">{description}</p>
+      <p className="text-gray-700 dark:text-gray-300 font-normal leading-relaxed">{description}</p>
     </div>
   )
 }
 
 const PortfolioCard: React.FC<PortfolioCardProps> = ({ image, title, category, href }) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-border bg-white dark:bg-background transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-      <div className="relative overflow-hidden aspect-[4/3]">
+    <div className="bg-white/60 dark:bg-black/40 border border-white/30 backdrop-blur-xl shadow-lg rounded-xl p-6 group relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <div className="relative overflow-hidden aspect-[4/3] rounded-xl">
         <Image
           src={image || "/placeholder.svg"}
           alt={title}
           width={400}
           height={300}
-          className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+          className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110 rounded-xl"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl bg-black/60">
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <Badge className="mb-3 bg-indigo-600/90 hover:bg-indigo-600 text-white border-none">
-              {category}
-            </Badge>
-            <h3 className="font-bold text-2xl text-white mb-3">{title}</h3>
+            <Badge variant="floating" className="mb-3">{category}</Badge>
+            <h3 className="font-medium text-lg text-white mb-3">{title}</h3>
             <Button 
               variant="secondary" 
               size="sm"
@@ -827,11 +726,9 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ image, title, category, h
           </div>
         </div>
       </div>
-      <div className="p-6">
-        <Badge variant="outline" className="mb-3 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800">
-          {category}
-        </Badge>
-        <h3 className="font-semibold text-lg group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
+      <div className="pt-6">
+        <Badge variant="floating">{category}</Badge>
+        <h3 className="font-medium text-base text-gray-800 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
           {title}
         </h3>
       </div>
@@ -841,10 +738,10 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ image, title, category, h
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, title, avatar }) => {
   return (
-    <div className="bg-gradient-to-br from-white/60 to-indigo-50/60 dark:from-background/60 dark:to-indigo-950/60 rounded-xl p-6 shadow-lg border border-white/40 dark:border-white/10 backdrop-blur-xl flex flex-col space-y-3 hover:shadow-xl transition-all duration-300 hover:border-white/60 dark:hover:border-white/30">
+    <div className="bg-white/60 dark:bg-black/40 border border-white/30 backdrop-blur-xl shadow-lg rounded-xl p-6 flex flex-col space-y-3 hover:shadow-xl transition-all duration-300 hover:border-white/50 dark:hover:border-white/50">
       <div className="flex flex-col items-center text-center space-y-6">
         <div className="relative">
-          <div className="absolute -inset-2 bg-gradient-to-r from-indigo-100/40 via-purple-100/40 to-pink-100/40 dark:from-indigo-900/30 dark:via-purple-900/30 dark:to-pink-900/30 rounded-full blur-sm"></div>
+          <div className="absolute -inset-2 bg-gray-100/60 dark:bg-gray-800/60 rounded-full blur-sm"></div>
           <Image
             src={avatar || "/placeholder.svg"}
             alt={name}
@@ -869,9 +766,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, title, a
             </svg>
           </div>
         </div>
-        <p className="text-gray-800 dark:text-gray-100 italic text-lg leading-relaxed font-medium">"{quote}"</p>
+        <p className="text-gray-800 dark:text-gray-200 italic text-base leading-relaxed font-normal">"{quote}"</p>
         <div>
-          <h4 className="font-semibold text-lg text-indigo-900 dark:text-indigo-100">{name}</h4>
+          <h4 className="font-medium text-base text-gray-800 dark:text-indigo-100">{name}</h4>
           <p className="text-sm text-gray-600 dark:text-gray-400">{title}</p>
         </div>
       </div>

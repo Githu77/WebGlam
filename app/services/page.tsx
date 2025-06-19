@@ -70,7 +70,7 @@ export default function ServicesPage() {
       <Header />
 
       {/* Centered Background Image - Fixed and in Front */}
-      <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
         <div className="relative w-96 h-96 opacity-30 dark:opacity-20">
           <Image
             src="https://res.cloudinary.com/dhiouuz96/image/upload/v1750245926/Lovepik_com-380144492-color-gradient-organic-object-3d-element-3d-objects-pink_hiomuq.png"
@@ -175,9 +175,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-flex items-center justify-center p-1.5 rounded-full bg-gradient-to-r from-indigo-100/90 via-purple-100/90 to-pink-100/90 dark:from-indigo-900/90 dark:via-purple-900/90 dark:to-pink-900/90 mb-6 shadow-lg backdrop-blur-sm"
             >
-              <Badge variant="floating" className="bg-white/50 dark:bg-background/50 text-indigo-900 dark:text-indigo-100 border-indigo-200/40 dark:border-indigo-700/30">
-                Our Expertise
-              </Badge>
+              <Badge variant="floating">Our Expertise</Badge>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -236,9 +234,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="inline-flex items-center justify-center p-1.5 rounded-full bg-gradient-to-r from-indigo-100/90 via-purple-100/90 to-pink-100/90 dark:from-indigo-900/90 dark:via-purple-900/90 dark:to-pink-900/90 mb-6 shadow-lg backdrop-blur-sm"
               >
-                <Badge variant="floating" className="bg-white/50 dark:bg-background/50 text-indigo-900 dark:text-indigo-100 border-indigo-200/40 dark:border-indigo-700/30">
-                  Web Development
-                </Badge>
+                <Badge variant="floating">Web Development</Badge>
               </motion.div>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -509,9 +505,7 @@ export default function ServicesPage() {
             </div>
             <div className="space-y-6 order-1 lg:order-2">
               <div className="inline-flex items-center justify-center p-1 rounded-full bg-gradient-to-r from-indigo-100/90 via-purple-100/90 to-pink-100/90 dark:from-indigo-900/90 dark:via-purple-900/90 dark:to-pink-900/90 mb-2">
-                <Badge className="bg-white/50 dark:bg-background/50 text-indigo-900 dark:text-indigo-100 border-indigo-200/40 dark:border-indigo-700/30 px-4 py-1">
-                  Software Engineering
-                </Badge>
+                <Badge variant="floating">Software Engineering</Badge>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">Custom Software Solutions</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
@@ -521,7 +515,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Python", "Java", "React Native", "Flutter", "AWS", "Docker"].map((tech) => (
-                  <Badge key={tech} variant="secondary" className="text-sm">
+                  <Badge key={tech} variant="floating">
                     {tech}
                   </Badge>
                 ))}
@@ -609,9 +603,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
             <div className="space-y-6">
               <div className="inline-flex items-center justify-center p-1 rounded-full bg-gradient-to-r from-indigo-100/90 via-purple-100/90 to-pink-100/90 dark:from-indigo-900/90 dark:via-purple-900/90 dark:to-pink-900/90 mb-2">
-                <Badge className="bg-white/50 dark:bg-background/50 text-indigo-900 dark:text-indigo-100 border-indigo-200/40 dark:border-indigo-700/30 px-4 py-1">
-                  Marketing Services
-                </Badge>
+                <Badge variant="floating">Marketing Services</Badge>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
                 Data-Driven Marketing That Works
@@ -622,7 +614,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Google Analytics", "Google Ads", "Facebook Ads", "HubSpot", "Mailchimp", "SEMrush"].map((tech) => (
-                  <Badge key={tech} variant="secondary" className="text-sm">
+                  <Badge key={tech} variant="floating">
                     {tech}
                   </Badge>
                 ))}
@@ -740,9 +732,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-flex items-center justify-center p-1.5 rounded-full bg-gradient-to-r from-indigo-100/90 via-purple-100/90 to-pink-100/90 dark:from-indigo-900/90 dark:via-purple-900/90 dark:to-pink-900/90 mb-6 shadow-lg backdrop-blur-sm"
             >
-              <Badge variant="floating" className="bg-white/50 dark:bg-background/50 text-indigo-900 dark:text-indigo-100 border-indigo-200/40 dark:border-indigo-700/30">
-                Get Started
-              </Badge>
+              <Badge variant="floating">Get Started</Badge>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

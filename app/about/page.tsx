@@ -69,7 +69,7 @@ export default function AboutPage() {
       <Header />
 
       {/* Centered Background Image - Fixed and in Front */}
-      <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
         <div className="relative w-96 h-96 opacity-30 dark:opacity-20">
           <Image
             src="https://res.cloudinary.com/dhiouuz96/image/upload/v1750245926/Lovepik_com-380144492-color-gradient-organic-object-3d-element-3d-objects-pink_hiomuq.png"

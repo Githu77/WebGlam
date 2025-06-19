@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import ThemeToggle from "./theme-toggle"
 import { createPortal } from "react-dom"
+import { motion, AnimatePresence } from "framer-motion"
+import { Home, Briefcase, Info, Mail } from "lucide-react"
 
 interface HeaderProps {
   className?: string;
@@ -56,10 +58,10 @@ export default function Header({ className }: HeaderProps) {
   }, [isMobileMenuOpen])
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "/", icon: <Home className="w-5 h-5 mr-3" /> },
+    { name: "Services", href: "/services", icon: <Briefcase className="w-5 h-5 mr-3" /> },
+    { name: "About", href: "/about", icon: <Info className="w-5 h-5 mr-3" /> },
+    { name: "Contact", href: "/contact", icon: <Mail className="w-5 h-5 mr-3" /> },
   ]
 
   const handleNavClick = (href: string) => {
@@ -162,105 +164,79 @@ export default function Header({ className }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && typeof window !== 'undefined' && createPortal(
-        <div 
-          className="fixed inset-0 z-[999999] bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-2xl flex flex-col animate-mobile-menu-overlay"
-          onClick={(e) => {
-            // Close menu when clicking on backdrop
-            if (e.target === e.currentTarget) {
-              setIsMobileMenuOpen(false)
-            }
-          }}
-          style={{ 
-            position: 'fixed', 
-            top: 0, 
-            left: 0, 
-            right: 0, 
-            bottom: 0,
-            width: '100vw',
-            height: '100vh',
-            zIndex: 999999,
-            transform: 'translateZ(0)'
-          }}
-        >
-          {/* Background decorative elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-200/5 dark:bg-indigo-700/5 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-200/5 dark:bg-purple-700/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-indigo-100/10 via-purple-100/10 to-pink-100/10 dark:from-indigo-800/10 dark:via-purple-800/10 dark:to-pink-800/10 rounded-full blur-3xl"></div>
-          </div>
-
-          <div className="container flex h-20 items-center justify-between px-4 border-b border-border/20 relative z-10">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <img src="https://res.cloudinary.com/dhiouuz96/image/upload/v1750237052/TheGlam-removebg-preview_hmudyt.png" alt="WebGlam Logo" className="w-10 h-10 transition-transform duration-300 group-hover:scale-105" />
-              <div className="flex flex-col">
-                <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-500 to-indigo-500 dark:from-indigo-400 dark:via-purple-400 dark:to-indigo-300">
-                  WebGlam
-                </span>
-                <span className="text-[10px] font-medium text-muted-foreground/80 tracking-wider uppercase">
-                  Digital Excellence
-                </span>
-              </div>
-            </Link>
-            <Button
-              variant="ghost"
-              size="icon"
+        <AnimatePresence>
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[999999] flex flex-col justify-center items-center bg-gradient-to-br from-white/80 via-indigo-100/80 to-purple-100/80 dark:from-background/90 dark:via-indigo-900/80 dark:to-purple-900/80 backdrop-blur-2xl"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setIsMobileMenuOpen(false)
+            }}
+            style={{ width: '100vw', height: '100vh', transform: 'translateZ(0)' }}
+            aria-modal="true"
+            role="dialog"
+          >
+            {/* Close Button */}
+            <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-background rounded-full transition-all duration-300 hover:scale-105 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20"
+              className="absolute top-6 right-6 z-20 bg-white/70 dark:bg-background/70 rounded-full p-3 shadow-lg hover:bg-white/90 dark:hover:bg-background/90 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              aria-label="Close menu"
             >
-              <X className="h-6 w-6" />
-              <span className="sr-only">Close menu</span>
-            </Button>
-          </div>
-
-          <nav className="flex flex-col flex-1 overflow-y-auto relative z-10">
-            <div className="container flex flex-col space-y-3 px-4 py-8">
-              {navItems.map((item, index) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`px-6 py-5 rounded-2xl text-lg font-medium transition-all duration-300 relative transform hover:scale-105 animate-mobile-menu-item group ${
-                    isActive(item.href)
-                      ? "text-indigo-600 dark:text-indigo-400 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 shadow-lg border border-indigo-200/50 dark:border-indigo-700/50"
-                      : "text-foreground hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gradient-to-r hover:from-indigo-50/50 hover:to-purple-50/50 dark:hover:from-indigo-900/20 dark:hover:to-purple-900/20 border border-transparent hover:border-indigo-200/30 dark:hover:border-indigo-700/30"
-                  }`}
-                  onClick={(e) => {
-                    if (item.href.startsWith("/#")) {
-                      e.preventDefault()
-                    }
-                    handleNavClick(item.href)
-                  }}
-                  style={{
-                    animationDelay: `${index * 150}ms`
-                  }}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold">{item.name}</span>
-                    {isActive(item.href) && (
-                      <div className="w-2 h-2 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 rounded-full shadow-sm"></div>
-                    )}
-                  </div>
-                  {isActive(item.href) && (
-                    <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 rounded-full"></div>
-                  )}
-                </Link>
-              ))}
+              <X className="w-7 h-7 text-indigo-700 dark:text-indigo-300" />
+            </button>
+            {/* Theme Toggle */}
+            <div className="absolute top-6 left-6 z-20">
+              <ThemeToggle />
             </div>
-
-            <div className="mt-auto border-t border-border/20 p-6 relative z-10">
+            {/* Nav Items */}
+            <nav className="flex flex-col items-center justify-center w-full gap-4 mt-12">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 30 }}
+                  transition={{ delay: 0.1 + index * 0.08, duration: 0.4, type: "spring" }}
+                  className="w-full flex justify-center"
+                >
+                  <Link
+                    href={item.href}
+                    className={`flex items-center w-72 max-w-[90vw] px-6 py-5 rounded-2xl text-xl font-semibold transition-all duration-300 shadow-lg bg-white/70 dark:bg-background/70 hover:bg-white/90 dark:hover:bg-background/90 text-indigo-700 dark:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mb-2 ${isActive(item.href) ? 'ring-2 ring-indigo-500' : ''}`}
+                    onClick={(e) => {
+                      if (item.href.startsWith("/#")) e.preventDefault()
+                      handleNavClick(item.href)
+                    }}
+                    tabIndex={0}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                  >
+                    {item.icon}
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 30 }}
+              transition={{ delay: 0.1 + navItems.length * 0.08, duration: 0.4, type: "spring" }}
+              className="w-full flex justify-center mt-8"
+            >
               <Button
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white dark:from-indigo-500 dark:to-purple-500 dark:hover:from-indigo-600 dark:hover:to-purple-600 rounded-2xl py-6 text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-mobile-menu-item"
+                className="w-72 max-w-[90vw] py-5 text-lg font-bold rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl"
                 asChild
-                style={{
-                  animationDelay: `${navItems.length * 150}ms`
-                }}
               >
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Get a Quote
                 </Link>
               </Button>
-            </div>
-          </nav>
-        </div>,
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>,
         document.body
       )}
     </header>

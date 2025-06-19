@@ -16,7 +16,7 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
         floating:
-          "bg-gradient-to-r from-indigo-200/90 via-purple-200/90 to-pink-200/90 dark:from-indigo-800/90 dark:via-purple-800/90 dark:to-pink-800/90 text-indigo-900 dark:text-indigo-100 hover:from-indigo-300 hover:via-purple-300 hover:to-pink-300 dark:hover:from-indigo-700 dark:hover:via-purple-700 dark:hover:to-pink-700 px-5 py-2 border-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium text-sm tracking-wide backdrop-blur-sm",
+          "bg-gradient-to-r from-indigo-200/95 via-purple-200/95 to-pink-200/95 dark:from-indigo-800/95 dark:via-purple-800/95 dark:to-pink-800/95 text-indigo-900 dark:text-indigo-100 hover:from-indigo-300 hover:via-purple-300 hover:to-pink-300 dark:hover:from-indigo-700 dark:hover:via-purple-700 dark:hover:to-pink-700 px-5 py-2 border-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium text-sm tracking-wide backdrop-blur-lg",
       },
     },
     defaultVariants: {

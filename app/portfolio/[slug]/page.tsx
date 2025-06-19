@@ -84,7 +84,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <Header />
 
       {/* Centered Background Image - Fixed and in Front */}
-      <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
         <div className="relative w-96 h-96 opacity-30 dark:opacity-20">
           <Image
             src="https://res.cloudinary.com/dhiouuz96/image/upload/v1750245926/Lovepik_com-380144492-color-gradient-organic-object-3d-element-3d-objects-pink_hiomuq.png"
@@ -107,9 +107,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="flex flex-col items-center text-center space-y-8">
             <div className="space-y-6 max-w-3xl">
               <div className="inline-block">
-                <Badge className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-indigo-900 px-4 py-1">
-                  {project.category}
-                </Badge>
+                <Badge variant="floating">{project.category}</Badge>
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-400 dark:from-indigo-300 dark:via-indigo-400 dark:to-indigo-200 leading-tight">
                 {project.title}
@@ -161,7 +159,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="space-y-8">
-              <div className="p-6 rounded-xl border border-white/40 dark:border-white/10 bg-gradient-to-br from-white/60 to-indigo-50/60 dark:from-background/60 dark:to-indigo-950/60 backdrop-blur-xl shadow-lg">
+              <div className="bg-gradient-to-br from-white/60 to-indigo-50/60 dark:from-background/60 dark:to-indigo-950/60 rounded-xl p-6 shadow-lg border border-white/40 dark:border-white/10 backdrop-blur-xl">
                 <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Project Details</h3>
                 <div className="space-y-4">
                   <div>
@@ -180,9 +178,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400">Technologies</h4>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs bg-white/40 dark:bg-black/40 border-white/40 dark:border-white/20 backdrop-blur-sm">
-                          {tech}
-                        </Badge>
+                        <Badge variant="floating">{tech}</Badge>
                       ))}
                     </div>
                   </div>
@@ -223,12 +219,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     />
                   </div>
                   <div className="p-6">
-                    <Badge
-                      variant="outline"
-                      className="mb-2 bg-indigo-50 dark:bg-indigo-900/30 border-indigo-100 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300"
-                    >
-                      {item.category}
-                    </Badge>
+                    <Badge variant="floating">{item.category}</Badge>
                     <h3 className="font-bold text-xl mb-2">{item.title}</h3>
                     <Button variant="link" className="p-0 text-indigo-600 dark:text-indigo-400" asChild>
                       <Link href={`/portfolio/${item.id}`}>View Project</Link>

@@ -132,7 +132,7 @@ export default function PortfolioPage() {
       <Header />
 
       {/* Centered Background Image - Fixed and in Front */}
-      <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
         <div className="relative w-96 h-96 opacity-30 dark:opacity-20">
           <Image
             src="https://res.cloudinary.com/dhiouuz96/image/upload/v1750245926/Lovepik_com-380144492-color-gradient-organic-object-3d-element-3d-objects-pink_hiomuq.png"
@@ -265,9 +265,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <Badge className="mb-3 bg-indigo-600/90 hover:bg-indigo-600 text-white border-none">
-              {item.category}
-            </Badge>
+            <Badge variant="floating">{item.category}</Badge>
             <h3 className="font-bold text-2xl text-white mb-3">{item.title}</h3>
             <Button 
               variant="secondary" 
@@ -284,9 +282,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
         </div>
       </div>
       <div className="p-6">
-        <Badge variant="outline" className="mb-3 bg-white/40 dark:bg-black/40 text-indigo-600 dark:text-indigo-400 border-white/40 dark:border-white/20 backdrop-blur-sm">
-          {item.category}
-        </Badge>
+        <Badge variant="floating">{item.category}</Badge>
         <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
           {item.title}
         </h3>

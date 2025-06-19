@@ -20,7 +20,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
+        sans: ['var(--font-outfit)'],
         display: ['var(--font-plus-jakarta)'],
         heading: ['var(--font-outfit)'],
       },
