@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="text-center md:text-left">
             <h3 className="font-semibold text-xl mb-6 text-white">Get in Touch</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-center">
               <li className="flex items-start space-x-3">
                 <div className="bg-white/10 p-2 rounded-lg mt-0.5">
                   <Mail className="h-4 w-4 text-indigo-200" />

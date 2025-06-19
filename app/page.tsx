@@ -118,7 +118,7 @@ export default function Home() {
                     className="inline-flex items-center gap-2 px-5 py-4 rounded-full bg-gradient-to-r from-indigo-100/40 to-purple-100/40 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-900 dark:text-indigo-100 border border-indigo-200/40 dark:border-indigo-700/30 shadow-sm backdrop-blur-sm"
                   >
                     <Sparkles className="w-4 h-4" />
-                    <span className="text-sm font-medium">Trusted Since 2019</span>
+                    <span className="text-sm font-medium">Trusted Since 2020</span>
                   </motion.div>
 
                   <div className="space-y-6">
@@ -156,7 +156,7 @@ export default function Home() {
                       size="lg"
                       className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-md transition-all duration-200 hover:scale-105"
                     >
-                      Start Your Project
+                      <Link href="/contact">Start Your Project</Link>
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                     <Button
@@ -392,7 +392,7 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="text-gray-800 dark:text-gray-100 max-w-[800px] text-lg font-medium">
-                  A modern hospitalwebsite designed to connect and engage with the community
+                  A modern hospital website designed to connect and engage with the community
                 </p>
               </div>
 
