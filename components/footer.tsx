@@ -126,7 +126,7 @@ export default function Footer() {
                     href="mailto:info@webglam.com"
                     className="text-white font-medium hover:text-indigo-100 transition-colors"
                   >
-                    info@webglam.com
+                    contact@webglam.co.ke
                   </Link>
                 </div>
               </li>
